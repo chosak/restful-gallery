@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>restful-gallery API Console</title>
+<link rel="stylesheet" href="/static/css.css" type="text/css" />
+<script type="text/javascript" src="/static/js/jquery-1.6.1.min.js"></script>
+<script type="text/javascript" src="/static/js/jquery.tmpl.min.js"></script>
+<script type="text/javascript" src="/static/js/jquery.form.js"></script>
+<script type="text/javascript" src="/static/js/admin.js"></script>
+</head>
+<body>
+<noscript>
+<div id="noscript-padding"></div>
+<div id="noscript-warning">Whoops! This page needs JavaScript to work properly. <a href="https://www.google.com/support/adsense/bin/answer.py?answer=12654">Not sure how to turn it on?</a></div>
+</noscript>
+<div id="container">
+<div id="header"><h1>restful-gallery API Console<h1></div>
+<div id="api-calls">
+    <h2>API Methods</h2>
+    {% for call in api_calls %}
+    {% spaceless %}
+    <div class="api-call">
+        <h3>{{ call.description }}</h3>
+        <pre>{{ call.doc }}</pre>
+        {% if call.url_parameters %}
+        <h4>URL parameters:</h4>
+        {% for parameter in call.url_parameters %}
+        <pre>{{ parameter }}:</pre><input type="text" class="urlparam" name="{{ parameter }}" />
+        {% endfor %}{% endif %}
+        <form action="{{ call.url_template }}" method="{{ call.method_type }}">
+            {% if call.post_dict %}
+            <h4>POST contents:</h4>
+            {% for post_arg in call.post_dict.items %}
+            <pre>{{ post_arg.0 }}:</pre><input type="{{ post_arg.1 }}" class="postarg" name="{{ post_arg.0 }}" />
+            {% endfor %}
+            <pre>wrapjson: </pre><input type="checkbox" checked="checked" disabled="disabled" />
+            <input type="hidden" name="wrapjson" value="" />
+            {% endif %}
+            <h4>API call:</h4>
+            <pre>{{ call.url_template }}</pre>
+            <input type="submit" value="{{ call.method_type }}" />
+        </form>
+        <h4>Server response:</h4>
+        <pre class="api-call-results"></pre>
+    </div>
+    {% endspaceless %}
+    {% endfor %}
+    </div>
+<div id="footer"></div>
+</div>
+</body>
+</html>

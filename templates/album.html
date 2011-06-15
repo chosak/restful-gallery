@@ -1,0 +1,8 @@
+<p>Album: {{ name }}</p>
+<p>Images:</p>
+<ul>
+{% for image in images %}
+<li><p>{{ image.name }}</p><p><a href="{{ image.share_url }}"><img src="{{ image.share_file_url }}" /></a></p></li>
+{% endfor %}
+</ul>
+

@@ -1,0 +1,103 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif; 
+}
+
+noscript {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+#noscript-padding {
+    padding-top: 25px;
+}
+
+#noscript-warning {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    line-height: 24px;
+    border-bottom: 1px solid #000;
+    text-align: center;
+    background-color: #eef;
+    z-index: 9999;
+}
+
+#container {
+    margin: 0 auto;
+    width: 760px;
+    padding: 0 0 20px;
+    border: 0;
+}
+
+#header {
+    text-align: center;
+    width: 100%;
+    margin: 20px;
+}
+
+#api-calls {
+    width: 100%;
+    margin: 20px;
+    border: 1px solid #777;
+}
+
+#api-calls, #database-contents {
+    padding: 10px;
+}
+
+#twocolumn {
+    border: 1px solid #777;
+}
+
+#footer {
+    clear: both;
+}
+
+.api-call {
+    border: 1px solid #000;
+    padding: 15px;
+    margin: 30px 10px;
+    background-color: #eef;
+}
+
+    .api-call h3 {
+        margin: 5px 0 10px;
+        text-decoration: underline;
+    }
+    
+    .api-call h4 {
+        margin: 5px 0;
+    }
+
+    .api-call h5 {
+        text-decoration: underline;
+    }
+
+    .api-call pre {
+        margin: 5px 0;
+    }
+
+    .api-call input[type="text"] {
+        width: 100%;
+    }
+
+    .api-call .api-call-results {
+        display: block;
+        margin: 5px 0;
+        padding: 5px;
+        border: 1px solid #777;
+        word-wrap: break-word;
+        background-color: #eee;
+    }
