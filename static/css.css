@@ -43,12 +43,31 @@ noscript {
 
 #header {
     text-align: center;
-    width: 100%;
     margin: 20px;
 }
 
+#demo-description {
+    text-align: justify;
+    margin: 20px;
+}
+
+#demo-description .link {
+    text-align: center;
+}
+
+#demo-warning {
+    text-align: center;
+    margin: 20px;
+    padding: 5px;
+    border: 1px solid #000;
+    background-color: #fee;
+}
+
+    #demo-warning p {
+        margin: 10px;
+    }
+
 #api-calls {
-    width: 100%;
     margin: 20px;
     border: 1px solid #777;
 }

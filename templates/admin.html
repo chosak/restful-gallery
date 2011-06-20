@@ -16,6 +16,17 @@
 </noscript>
 <div id="container">
 <div id="header"><h1>restful-gallery API Console<h1></div>
+{% if demo_mode %}
+<div id="demo-description">
+<p>This page provides an administrative console to interact with the <em>restful-gallery</em> API running on this server. The API follows RESTful conventions to expose a collection of resources for maintaining a simple image gallery. The forms below allow users to create, read, and delete these resources.</p>
+<p>The gallery consists of a set of named albums, each containing one or more named images. Albums and images have a unique API URL associated with them, along with a shorter shareable URL that uses a hash value to obscure how data is stored in the gallery database.</p>
+<p>Source code for this page, and for the API itself, can be found at:</p>
+<p class="link"><a href="https://github.com/chosak/restful-gallery">https://github.com/chosak/restful-gallery</a></p>
+<p>This page uses the popular JavaScript library <a href="http://jQuery.com">jQuery</a> along with its <a href="http://jquery.malsup.com/form/">Form</a> and <a href="http://api.jquery.com/jquery.tmpl/">Templates</a> plugins.</p>
+</div>
+<div id="demo-warning"><p>This page is running in demo mode.</p>
+<p>Database changes (POSTs, DELETEs) are only simulated.</p></div>
+{% endif %}
 <div id="api-calls">
     <h2>API Methods</h2>
     {% for call in api_calls %}

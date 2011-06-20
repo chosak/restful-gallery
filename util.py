@@ -71,9 +71,13 @@ def get_content_type(extension):
     if extension == 'bmp':
         return 'Content-type: image/bmp'
     elif extension == 'jpg' or extension == 'jpeg':
-        return 'Content-type: image/jpg'
+        return 'Content-type: image/jpeg'
     elif extension == 'png':
         return 'Content-type: image/png'
+    elif extension == 'tif' or extension == 'tiff':
+        return 'Content-type: image/tiff'
+    elif extension == 'gif':
+        return 'Content-type: image/gif'
     else:
         return 'Content-type: text/plain'
 

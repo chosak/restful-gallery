@@ -55,7 +55,8 @@ class AlbumRootHandler(webapp.RequestHandler):
             data = {}
             self.error(400)
         else:
-            album.put() 
+            if not config.DEMO_MODE:
+                album.put() 
 
             data = album.to_dict()
             self.response.headers['Location'] = data['url']
@@ -101,11 +102,12 @@ class AlbumHandler(webapp.RequestHandler):
         if not album:
             return self.error(404)
 
-        q = Image.all().filter('album =', album)
-        for image in q:
-            image.delete()
+        if not config.DEMO_MODE:
+            q = Image.all().filter('album =', album)
+            for image in q:
+                image.delete()
 
-        album.delete()
+            album.delete()
 
 class ImageRootHandler(webapp.RequestHandler):
     @api_call(config.IMAGE_ROOT_URL_TEMPLATE_STRING, 'List all images in an album')
@@ -171,7 +173,8 @@ class ImageRootHandler(webapp.RequestHandler):
             data = {}
             self.error(400)
         else:
-            image.put()
+            if not config.DEMO_MODE:
+                image.put()
 
             data = image.to_dict()
             self.response.headers['Location'] = data['url']
@@ -211,7 +214,7 @@ class ImageHandler(webapp.RequestHandler):
         if not extension:
             data = image.to_dict()
             return write_json(self, image.to_dict())
-
+        
         if extension != image.extension:
             return self.error(404)
    
@@ -241,7 +244,8 @@ class ImageHandler(webapp.RequestHandler):
         if extension and extension != image.extension:
             return self.error(404)
 
-        image.delete()
+        if not config.DEMO_MODE:
+            image.delete()
 
 class ShareHandler(webapp.RequestHandler):
     def get(self, hash, extension=None):
@@ -272,7 +276,10 @@ class ShareHandler(webapp.RequestHandler):
 
 class AdminHandler(webapp.RequestHandler):
    def get(self):
-        self.response.out.write(render_template('admin.html', { 'api_calls': api_call.calls }))
+        self.response.out.write(render_template('admin.html', { 
+            'api_calls': api_call.calls,
+            'demo_mode': config.DEMO_MODE, 
+        }))
 
 class DefaultHandler(webapp.RequestHandler):
     def get(self):

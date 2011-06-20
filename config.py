@@ -7,7 +7,10 @@ from base36 import base36encode
 from string import Template
 
 # URL for web-based gallery administration
-ADMIN_URL = '/admin'
+ADMIN_URL = '/'
+
+# Demo mode prevents any changes but simulates correct responses.
+DEMO_MODE = False
 
 # URL prefix for all gallery albums
 ALBUM_ROOT_URL = '/albums'
@@ -42,7 +45,7 @@ IMAGE_ID_GENERATOR = lambda: str(uuid.uuid4())
 IMAGE_ID_REGEX = r'([\w]{8}-[\w]{4}-[\w]{4}-[\w]{4}-[\w]{12})'
 
 # Regex for valid file extensions
-FILE_EXT_REGEX = r'(\.(?:BMP|bmp|JPG|jpg|JPEG|jpeg|PNG|png))?'
+FILE_EXT_REGEX = r'(\.(?:BMP|bmp|JPG|jpg|JPEG|jpeg|PNG|png|gif|GIF|tif|TIF|tiff|TIFF))?'
 
 # URL regex for all images
 IMAGE_URL_REGEX = IMAGE_URL_TEMPLATE.substitute({'album_id': ALBUM_ID_REGEX, 
@@ -60,7 +63,7 @@ SHARE_URL_TEMPLATE = Template(SHARE_URL_TEMPLATE_STRING)
 
 # Generator and matching regex for shareable URL hashes
 SHARE_HASH_GENERATOR = lambda index: base36encode(index)
-SHARE_HASH_REGEX = r'([0-9a-z]{1,6})'
+SHARE_HASH_REGEX = r'([0-9a-z]{1,' + str(len(str(sys.maxint))) + '})'
 
 # URL regex for all shareable items
 SHARE_URL_REGEX = SHARE_URL_TEMPLATE.substitute({'hash': SHARE_HASH_REGEX + FILE_EXT_REGEX})
