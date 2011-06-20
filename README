@@ -1,5 +1,5 @@
 RESTful image gallery, written in Python, built for Google App Engine
 
-See <a href="http://restful-gallery.appengine.com">http://restful-gallery.appengine.com</a> for a live demo of this code running on Google App Engine. That page also provides documentation for each API method.
+See http://restful-gallery.appengine.com for a live demo of this code running on Google App Engine. That page also provides documentation for each API method.
 
 For licensing instructions, see LICENSE.
