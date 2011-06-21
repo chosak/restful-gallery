@@ -25,10 +25,6 @@
 <p class="link"><a href="https://github.com/chosak/restful-gallery">https://github.com/chosak/restful-gallery</a></p>
 <p>This page also uses the popular JavaScript library <a href="http://jQuery.com">jQuery</a> along with its <a href="http://jquery.malsup.com/form/">Form</a> and <a href="http://api.jquery.com/jquery.tmpl/">Templates</a> plugins.</p>
 </div>
-{% if demo_mode %}
-<div id="demo-warning"><p>This page is running in demo mode.</p>
-<p>Database changes (POSTs, DELETEs) are only simulated.</p></div>
-{% endif %}
 <div id="api-auth">
     <p>The <em>restful-gallery</em> API uses two-legged OAuth to authenticate all calls. All requests must include a consumer key and be encoded using the associated consumer secret. API calls submitted from this page use the following credentials:</p>
     <div id="auth-inputs">
@@ -37,6 +33,10 @@
     </div>
     <p>This page uses the <a href="http://oauth.net/code/">oauth.net</a> JavaScript library to generate OAuth request signatures.</p>
 </div>
+{% if demo_mode %}
+<div id="demo-warning"><p>This page is running in demo mode.</p>
+<p>Database changes (POSTs, DELETEs) are only simulated.</p></div>
+{% endif %}
 <div id="api-calls">
     <h2>API Methods</h2>
     {% for call in api_calls %}
