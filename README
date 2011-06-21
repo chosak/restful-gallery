@@ -1,4 +1,5 @@
-RESTful image gallery, written in Python, built for Google App Engine
+RESTful image gallery, two-legged OAuth, built for Google App Engine.
+Python backend with a fully-functioning JavaScript demo client.
 
 See http://restful-gallery.appspot.com for a live demo of this code running on Google App Engine.
 Detailed API documentation is also hosted there.
