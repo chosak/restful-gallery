@@ -12,8 +12,8 @@ from google.appengine.ext.webapp.util import run_wsgi_app
 from util import api_call, render_template, read_json, write_json, write_image
 from models import Shareable, Album, Image
 
-# from auth import verify_auth, AuthHandler
-# api_call.auth = verify_auth(error_code=401)
+from auth import verify_auth
+api_call.auth = verify_auth(error_code=401)
 
 class AlbumRootHandler(webapp.RequestHandler):
     @api_call(config.ALBUM_ROOT_URL, 'List existing albums')

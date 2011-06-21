@@ -3,4 +3,6 @@ RESTful image gallery, written in Python, built for Google App Engine
 See http://restful-gallery.appspot.com for a live demo of this code running on Google App Engine.
 Detailed API documentation is also hosted there.
 
+This code makes use of the oauth2 Python library, hosted at https://github.com/simplegeo/python-oauth2. When running on App Engine this also requires the inclusion of the httplib2 library, available at http://code.google.com/p/httplib2/.
+
 For licensing instructions, see LICENSE.

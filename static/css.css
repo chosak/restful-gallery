@@ -46,12 +46,12 @@ noscript {
     margin: 20px;
 }
 
-#demo-description {
+#description {
     text-align: justify;
     margin: 20px;
 }
 
-#demo-description .link {
+#description .link {
     text-align: center;
 }
 
@@ -67,21 +67,37 @@ noscript {
         margin: 10px;
     }
 
+#api-auth {
+    text-align: justify;
+    margin: 20px;
+}
+
+    #api-auth #auth-inputs {
+        text-align: center;
+    }
+
+    #api-auth #auth-inputs span {
+        padding: 0 20px;
+    }
+
+    #api-auth #auth-inputs input {
+        margin-left: 5px;
+        width: 140px;
+    }
+
 #api-calls {
     margin: 20px;
     border: 1px solid #777;
 }
 
-#api-calls, #database-contents {
+#api-calls {
     padding: 10px;
-}
-
-#twocolumn {
-    border: 1px solid #777;
 }
 
 #footer {
     clear: both;
+    text-align: center;
+    font-size: 14px;
 }
 
 .api-call {
